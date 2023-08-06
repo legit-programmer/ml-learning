@@ -11,7 +11,6 @@ data = pd.read_csv('student-mat.csv', sep=';')
 
 data = data[['G1', 'G2', 'G3', 'studytime', 'failures', 'absences']]
 predict = "G3"
-
 X = np.array(data.drop([predict], axis=1))
 y = np.array(data[predict])
 
@@ -35,3 +34,10 @@ predictions = linear.predict(X_test)
 
 for i in range(len(predictions)):
     print(predictions[i], X_test[i], y_test[i])
+
+x = 'failures'
+style.use('ggplot')
+pyplot.scatter(data[x], data['G3'])
+pyplot.xlabel(x)
+pyplot.ylabel('g3')
+pyplot.show()
