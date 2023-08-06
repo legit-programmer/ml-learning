@@ -18,4 +18,10 @@ linear = linear_model.LinearRegression()
 linear.fit(X_train, y_train)
 acc = linear.score(X_test, y_test)
 
-print(acc)
+print('Coefficients: \n', linear.coef_)
+print('Intercept: \n', linear.intercept_)
+
+predictions  = linear.predict(X_test)
+
+for i in range(len(predictions)):
+    print(predictions[i], X_test[i], y_test[i])
