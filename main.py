@@ -35,6 +35,8 @@ predictions = linear.predict(X_test)
 for i in range(len(predictions)):
     print(predictions[i], X_test[i], y_test[i])
 
+
+
 x = 'failures'
 style.use('ggplot')
 pyplot.scatter(data[x], data['G3'])
