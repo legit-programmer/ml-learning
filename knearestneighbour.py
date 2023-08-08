@@ -1,3 +1,4 @@
+import sklearn.model_selection
 from sklearn.utils import shuffle
 from sklearn.neighbors import KNeighborsClassifier
 import pandas as pd
@@ -29,6 +30,9 @@ clsList = list(df['class'])
 cls = processor.fit_transform(clsList)
 
 predict = "class"
+X = list(zip(buying, maint, door, persons, lug_boot, safety))
+y = list(cls)
 
+X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)
 
-print(safety)
+print(X_train, y_train)
