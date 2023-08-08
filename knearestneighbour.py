@@ -35,4 +35,11 @@ y = list(cls)
 
 X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y, test_size=0.1)
 
-print(X_train, y_train)
+model = KNeighborsClassifier(n_neighbors=9)
+model.fit(X_train, y_train)
+acc = model.score(X_test, y_test)
+predicted = model.predict(X_test)
+
+names = ['unacc', 'acc', 'good', 'vgood']
+for i in range(len(X_test)):
+    print(f"Predicted: {names[predicted[i]]} Data: {X_test[i]} Actual: {names[y_test[i]]}")
